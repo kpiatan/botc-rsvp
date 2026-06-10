@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #d32f2f;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    color: #bdbdbd;
+}
+
+.totals {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.total-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    width: 320px;
+    padding: 20px;
+}
+
+.total-card h2 {
+    color: #d32f2f;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.total-card p {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #cccccc;
+}
+
+.summary-list {
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    min-height: 80px;
+}
+
+.summary-list div {
+    padding: 4px 0;
+}
+
+.vote-form {
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+.vote-form h2 {
+    color: #d32f2f;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.vote-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vote-form label {
+    margin-top: 5px;
+}
+
+.vote-form input,
+.vote-form select,
+.vote-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #2a2a2a;
+    color: white;
+    font-size: 1rem;
+}
+
+.vote-form textarea {
+    resize: vertical;
+}
+
+.vote-form button {
+    margin-top: 15px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #d32f2f;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.vote-form button:hover {
+    opacity: 0.9;
+}
+
+.admin-section {
+    text-align: center;
+}
+
+.admin-section button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #555;
+    color: white;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 350px;
+    background: #1e1e1e;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-content h2 {
+    color: #d32f2f;
+    text-align: center;
+}
+
+.modal-content input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #2a2a2a;
+    color: white;
+}
+
+.modal-content button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+
+    .totals {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .total-card {
+        width: 100%;
+        max-width: 600px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .vote-form {
+        padding: 20px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+}
+
+.status-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.status-buttons button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #2a2a2a;
+    color: white;
+    cursor: pointer;
+}
+
+.status-buttons button.active {
+    background: #d32f2f;
+    border-color: #d32f2f;
+}
+
