@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood on the Clocktower - RSVP</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Blood on the Clocktower</h1>
+        <p class="subtitle">Confirmação da próxima sessão</p>
+    </header>
+
+    <!-- TOP STATUS CARDS -->
+    <section class="totals">
+
+        <div class="total-card">
+            <h2 id="going-count">0</h2>
+            <p>Confirmados</p>
+            <div id="going-summary" class="summary-list"></div>
+        </div>
+
+        <div class="total-card">
+            <h2 id="maybe-count">0</h2>
+            <p>Talvez</p>
+            <div id="maybe-summary" class="summary-list"></div>
+        </div>
+
+        <div class="total-card">
+            <h2 id="not-going-count">0</h2>
+            <p>Não vão</p>
+            <div id="not-going-summary" class="summary-list"></div>
+        </div>
+
+    </section>
+
+    <!-- FORM -->
+    <section class="vote-form">
+
+        <h2>Vou jogar?</h2>
+
+        <form id="presence-form">
+
+            <label>Nome</label>
+            <input type="text" id="name" required placeholder="Seu nome">
+
+            <!-- STATUS BUTTONS -->
+            <label>Situação</label>
+
+            <div class="status-buttons">
+
+                <button type="button" data-status="going">Vou</button>
+                <button type="button" data-status="maybe">Talvez</button>
+                <button type="button" data-status="not-going">Não vou</button>
+
+            </div>
+
+            <input type="hidden" id="status" value="going">
+
+            <!-- GUESTS -->
+            <label>Convidados</label>
+
+            <div class="guest-buttons">
+
+                <button type="button" data-guests="0">0</button>
+                <button type="button" data-guests="1">1</button>
+                <button type="button" data-guests="2">2</button>
+                <button type="button" data-guests="3">3</button>
+
+            </div>
+
+            <input type="hidden" id="guests" value="0">
+
+            <button type="submit">Salvar presença</button>
+
+        </form>
+
+    </section>
+
+    <!-- ADMIN -->
+    <section class="admin-section">
+
+        <button id="admin-button">Admin</button>
+
+    </section>
+
+</div>
+
+<!-- MODAL -->
+<div id="admin-modal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <h2>Admin</h2>
+
+        <input type="password" id="admin-password" placeholder="Senha">
+
+        <button id="admin-login">Entrar</button>
+
+        <button id="clear-votes" style="display:none;">
+            Limpar enquete
+        </button>
+
+        <button id="close-admin">Fechar</button>
+
+    </div>
+
+</div>
+
+<!-- FIREBASE + APP -->
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import {
+    getFirestore,
+    collection,
+    doc,
+    setDoc,
+    deleteDoc,
+    onSnapshot,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCbEgNHzQCqHJvntTcAuHm8xAmir3BMDlQ",
+    authDomain: "botc-rsvp.firebaseapp.com",
+    projectId: "botc-rsvp",
+    storageBucket: "botc-rsvp.firebasestorage.app",
+    messagingSenderId: "605172488264",
+    appId: "1:605172488264:web:60d5088d4d6593d290a07d"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.firebaseDB = db;
+window.firebaseAPI = {
+    collection,
+    doc,
+    setDoc,
+    deleteDoc,
+    onSnapshot,
+    getDocs
+};
+
+</script>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
